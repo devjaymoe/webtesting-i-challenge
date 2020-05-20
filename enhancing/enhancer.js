@@ -6,7 +6,13 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  if (item.enchantment >= 0 && item.enchantment < 20){
+    return {...item, enchantment: item.enchantment + 1}
+  } else {
+    
+    return { ...item };
+
+  }
 }
 
 function fail(item) {
@@ -14,7 +20,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {

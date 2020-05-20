@@ -82,4 +82,32 @@ describe('enchanter', () => {
       expect(actual.enchantment).toBe(expectedEnchant)
     })
   })
+
+  describe('item renamed with enchant level', () => {
+    it('return with zero level enchant', () => {
+      const expected = 'LongClaw';
+      const item = {
+        name: 'LongClaw',
+        durability: 75,
+        enchantment: 0
+      };
+
+      const actual = enchanter.get(item)
+
+      expect(actual.name).toBe(expected)
+    })
+
+    it('return with level enchant in name', () => {
+      const expected = '[+6] LongClaw';
+      const item = {
+        name: 'LongClaw',
+        durability: 75,
+        enchantment: 6
+      };
+
+      const actual = enchanter.get(item)
+
+      expect(actual.name).toBe(expected)
+    })
+  })
 });

@@ -28,5 +28,9 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  if (item.enchantment === 0) {
+    return {...item}
+  } else {
+    return {...item, name: `[+${item.enchantment}]` + ' ' + item.name }
+  }
 }
